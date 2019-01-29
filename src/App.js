@@ -17,9 +17,9 @@ constructor(props){
     loginGoogle.then(result => console.log(`${result.user.email} ha iniciado sesion`));
     loginGoogle.catch(error => console.log(`Error ${error.code}: ${error.message}`));
 
-    /*firebase.auth().signInWithPopup(provider)
+    /* firebase.auth().signInWithPopup(provider)
       .then((result) => console.log(`${result.user.email} ha iniciado sesion`))
-      .catch((error) => console.log(`Error ${error.code}: ${error.message}`));*/
+      .catch((error) => console.log(`Error ${error.code}: ${error.message}`)); */
   }
 
   render() {
