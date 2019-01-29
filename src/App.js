@@ -13,9 +13,13 @@ constructor(props){
   handleAuth() {
     const provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(provider)
-      .then(result => console.log(`${result.user.email} ha iniciado sesion`))
-      .cath(error => console.log(`Error ${error.code}: ${error.message}`));
+    const loginGoogle = firebase.auth().signInWithPopup(provider);
+    loginGoogle.then(result => console.log(`${result.user.email} ha iniciado sesion`));
+    loginGoogle.catch(error => console.log(`Error ${error.code}: ${error.message}`));
+
+    /*firebase.auth().signInWithPopup(provider)
+      .then((result) => console.log(`${result.user.email} ha iniciado sesion`))
+      .cath((error) => console.log(`Error ${error.code}: ${error.message}`));*/
   }
 
   render() {
