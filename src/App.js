@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import firebase from 'firebase';
 import './App.css';
 
 class App extends Component {
+constructor(props){
+  super(props);
+  this.state = {
+    /*States*/ 
+  };
+  this.handleAuth = this.handleAuth.bind(this);
+}
+  handleAuth() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider)
+      .then(result => console.log(`${result.user.email} ha iniciado sesion`))
+      .cath(error => console.log(`Error ${error.code}: ${error.message}`));
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h2>PseudoIntagram</h2>
         </header>
+        <button onClick={this.handleAuth}> login con google</button>
       </div>
     );
   }
